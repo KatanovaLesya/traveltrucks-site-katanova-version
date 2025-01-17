@@ -1,0 +1,15 @@
+.header {
+    background-color: #e44a48;
+    color: white;
+    padding: 10px 20px;
+}
+
+.navLink {
+    color: white;
+    text-decoration: none;
+    margin-right: 15px;
+}
+
+.navLink:hover {
+    text-decoration: underline;
+}
