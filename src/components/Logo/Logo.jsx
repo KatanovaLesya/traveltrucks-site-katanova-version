@@ -20,7 +20,7 @@ const Logo = () => {
     <div className={styles.logo}>
       {icons.map((icon, index) => (
         <svg key={index} className={icon.class}>
-          <use xlinkHref={`/public/assets/svg/icons.svg#${icon.name}`}></use>
+          <use xlinkHref={`assets/svg/icons.svg#${icon.name}`}></use>
         </svg>
       ))}
     </div>
