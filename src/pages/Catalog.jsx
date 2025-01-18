@@ -9,9 +9,11 @@ const Catalog = () => {
   const { items, loading, error } = useSelector((state) => state.campers);
 
   useEffect(() => {
-    // Завантаження списку кемперів
-    dispatch(fetchCampers());
-  }, [dispatch]);
+    // Перевірка, чи список кемперів вже завантажений
+    if (!items || items.length === 0) {
+      dispatch(fetchCampers());
+    }
+  }, [dispatch, items]);
 
   // Логування даних для дебагу
   console.log("Fetched campers:", items);
