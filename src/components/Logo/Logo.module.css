@@ -1,0 +1,64 @@
+.logo {
+    display: flex;
+    align-items: end;
+}
+
+.iconT {
+    width: 13px;
+    height: 15px;
+}
+
+.iconR {
+    width: 8px;
+    height: 12px;
+}
+
+.iconA {
+    width: 11px;
+    height: 12px;
+}
+
+.iconV {
+    width: 13px;
+    height: 12px;
+}
+
+.iconE {
+    width: 12px;
+    height: 12px;
+}
+
+.iconL {
+    width: 5px;
+    height: 15px;
+}
+
+.iconT2 {
+    width: 14px;
+    height: 15px;
+}
+
+.iconR2 {
+    width: 9px;
+    height: 12px;
+}
+
+.iconU {
+    width: 12px;
+    height: 12px;
+}
+
+.iconC {
+    width: 12px;
+    height: 12px;
+}
+
+.iconK {
+    width: 13px;
+    height: 15px;
+}
+
+.iconS {
+    width: 12px;
+    height: 12px;
+}

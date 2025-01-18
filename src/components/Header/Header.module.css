@@ -1,15 +1,60 @@
 .header {
-    background-color: #e44a48;
-    color: white;
-    padding: 10px 20px;
+    font-family: "Inter", sans-serif;
+    background-color: #f7f7f7;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 64px;
+    border-bottom: 1px solid #f2f4f7;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: center;
+    color: #101828;
+}
+
+.container {
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+    width: 100%;
+    gap: 450px;
+    
+}
+
+.menu {
+    display: flex;
+    gap: 32px;
+}
+
+.logoLink {
+    text-decoration: none;
 }
 
 .navLink {
-    color: white;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: center;
+    color: #101828;
+    transition: color 0.3s ease;
     text-decoration: none;
-    margin-right: 15px;
+    
+}
+
+.navLink:last-child {
+    margin-right: 0;
 }
 
 .navLink:hover {
-    text-decoration: underline;
+    color: #d84343;
+    text-decoration: none;
+}
+
+.activeLink {
+    color: #d84343;
+    text-decoration: none;
+   
 }

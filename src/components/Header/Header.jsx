@@ -1,14 +1,36 @@
-import { Link } from 'react-router-dom';
-import styles from './Header.module.css';
+import { Link, NavLink } from "react-router-dom";
+import Logo from "../../components/Logo/Logo";
+import styles from "./Header.module.css";
 
 const Header = () => {
   return (
     <header className={styles.header}>
-      {/* Доданий атрибут aria-label */}
-      <nav aria-label="Main navigation">
-        <Link to="/" className={styles.navLink}>Home</Link>
-        <Link to="/catalog" className={styles.navLink}>Catalog</Link>
-      </nav>
+      <div className={styles.container}>
+        {/* Логотип */}
+        <Link to="/" className={styles.logoLink}>
+          <Logo />
+        </Link>
+
+        {/* Навігація */}
+        <nav aria-label="Main navigation" className={styles.menu}>
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              isActive ? styles.activeLink : styles.navLink
+            }
+          >
+            Home
+          </NavLink>
+          <NavLink
+            to="/catalog"
+            className={({ isActive }) =>
+              isActive ? styles.activeLink : styles.navLink
+            }
+          >
+            Catalog
+          </NavLink>
+        </nav>
+      </div>
     </header>
   );
 };
