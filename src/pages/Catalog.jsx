@@ -1,44 +1,115 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchCampers } from "../redux/campersSlice"; // Імпорт екшену
-import CamperCard from "../components/CamperCard/CamperCard"; // Імпорт компонента CamperCard
-import styles from "/src/styles/styles.module.css"; 
+import { fetchCampers } from "../redux/campersSlice";
+import CamperCard from "../components/CamperCard/CamperCard";
+import Filters from "../components/Filters/Filters";
+import styles from "/src/styles/styles.module.css";
 
 const Catalog = () => {
   const dispatch = useDispatch();
   const { items, loading, error } = useSelector((state) => state.campers);
+  const [filters, setFilters] = useState({});
+  const [filteredCampers, setFilteredCampers] = useState([]);
+  const [visibleCount, setVisibleCount] = useState(12);
 
+  // Завантаження даних при першому рендері
   useEffect(() => {
-    // Перевірка, чи список кемперів вже завантажений
-    if (!items || items.length === 0) {
+    if (!items || !items.items || items.items.length === 0) {
       dispatch(fetchCampers());
     }
   }, [dispatch, items]);
 
-  // Логування даних для дебагу
-  console.log("Fetched campers:", items);
+  // Ініціалізація відфільтрованих кемперів
+  useEffect(() => {
+    if (items && items.items) {
+      setFilteredCampers(items.items);
+    }
+  }, [items]);
+
+
+
+  const applyFilters = (newFilters) => {
+  const vehicleTypeMap = {
+    Van: "panelTruck",
+    "Fully Integrated": "fullyIntegrated",
+    Alcove: "alcove",
+  };
+    
+  // Мапа відповідностей для обладнання
+  const equipmentMap = {
+    AC: "airConditioning",
+    Kitchen: "kitchen",
+    Bathroom: "bathroom",
+    TV: "tv",
+    Automatic: "automatic",
+  };
+
+
+  const filtered = items.items.filter((camper) => {
+    if (newFilters.location && !camper.location.toLowerCase().includes(newFilters.location.toLowerCase())) {
+      return false;
+    }
+
+
+    // Фільтр за обладнанням
+    if (newFilters.equipment && newFilters.equipment.length > 0) {
+      const hasRequiredEquipment = newFilters.equipment.every((equipment) => {
+        const apiKey = equipmentMap[equipment]; // Перетворення назви фільтру на ключ API
+        return apiKey && camper[apiKey]; // Перевірка наявності ключа і значення в camper
+      });
+      if (!hasRequiredEquipment) {
+        return false;
+      }
+    }
+
+
+    if (newFilters.vehicleType && camper.form !== vehicleTypeMap[newFilters.vehicleType]) {
+      return false;
+    }
+    return true;
+  });
+  setFilteredCampers(filtered);
+};
+
+
+  const handleSearchClick = () => {
+    applyFilters(filters);
+    setVisibleCount(6); // Скидання видимих карток
+  };
+
+  const handleLoadMore = () => {
+    setVisibleCount((prevCount) => prevCount + 6);
+  };
 
   if (loading) {
-    return <p>Loading campers...</p>; // Повідомлення під час завантаження
+    return <p>Loading campers...</p>;
   }
 
   if (error) {
-    return <p>Error loading campers: {error}</p>; // Повідомлення про помилку
+    return <p>Error loading campers: {error}</p>;
   }
 
-  // Перевірка і відображення списку кемперів
-  const campersArray = Array.isArray(items) ? items : items.items || [];
-
   return (
-    <div className={styles.catalog}>
-      <h1>Available Campers</h1>
-      <div className={styles.grid}>
-        {campersArray.length > 0 ? (
-          campersArray.map((camper) => (
-            <CamperCard key={camper.id} camper={camper} />
-          ))
-        ) : (
-          <p>No campers available.</p>
+    <div className={styles.catalogContainer}>
+      <div className={styles.filters}>
+        <Filters onFilterApply={setFilters} onSearchClick={handleSearchClick} />
+      </div>
+
+      <div className={styles.catalog}>
+        
+        <div className={styles.grid}>
+        {filteredCampers.slice(0, visibleCount).map((camper) => (
+          <div key={camper.id} className={styles.cardContainer}>
+            <CamperCard camper={camper} />
+          </div>
+  ))}
+</div>
+        {visibleCount < filteredCampers.length && (
+          <div className={styles.buttonContainer}>
+            <button className={styles.loadMoreButton} onClick={handleLoadMore}>
+            Load More
+            </button>
+          </div>
         )}
       </div>
     </div>
