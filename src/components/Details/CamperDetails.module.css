@@ -142,9 +142,12 @@
 }
 
 .description {
+    display: flex;
+    flex-direction: column;
+    max-width: 1312px;
+    font-family: "Inter", sans-serif;
     margin: 0;
     padding-top: 16px;
-    padding-right: 16px;
     padding-bottom: 60px;
     font-weight: 400;
     font-size: 16px;
@@ -152,3 +155,272 @@
     color: #475467;
 }
 
+.tabContainer {
+    display: flex;
+    gap: 40px;
+    border-bottom: 1px solid #DADDE1;
+    margin-bottom: 28px;
+}
+
+.tabButton {
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 28px 0px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #555;
+   
+}
+
+.tabButton:hover {
+    color: #000;
+}
+
+.tabButton.active {
+    
+    border-bottom: 5px solid #e44a48;
+}
+
+.featuresContainer {
+    display: flex;
+    flex-direction: wrap;
+    gap: 16px;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    width: 631px;
+}
+.iconsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    width: 50%;
+    /* Іконки займають половину ширини */
+}
+
+.detailsContainer {
+    display: flex;
+    flex: 1;
+    background-color: #fff;
+    
+}
+
+.featuresList {
+    display: flex;
+    width: 527px;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    background-color: #f2f4f7;
+    border-radius: 100px;
+    padding: 8px 12px;
+    width: fit-content;
+    height: fit-content;
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: center;
+    color: #101828;
+    white-space: nowrap;
+    cursor: default;
+}
+
+.featureIcon {
+    width: 20px;
+    height: 20px;
+}
+
+.details {
+    flex: 1;
+    background-color: #fff;
+    padding: 16px;
+    border: 1px solid #dadde1;
+    border-radius: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.details h2 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+.detailsItem {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.detailsItem:last-child {
+    border-bottom: none;
+}
+
+.reviewsContainer {
+    padding: 32px 48px;
+    background-color: #f9f9f9;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.review {
+    display: flex;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid #dadde1;
+}
+
+.review:last-child {
+    border-bottom: none;
+}
+
+.reviewerAvatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.reviewerContent {
+    flex: 1;
+}
+
+.reviewerName {
+    font-weight: bold;
+    margin-bottom: 4px;
+    font-size: 16px;
+}
+
+.reviewRating {
+    color: #f4c542;
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.reviewComment {
+    font-size: 14px;
+    color: #555;
+}
+
+.featuresContentContainer {
+    display: flex;
+    flex-direction: column;
+    max-width: 527px;
+}
+
+.featuresAndDetails {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background-color: #f9f9f9;
+    border-radius: 12px;
+    max-width: 527px;
+    padding-top: 44px;
+    padding-left: 52px;
+    padding-right: 52px;
+    gap: 8px;
+}
+
+.featuresAndDetails>div {
+    max-width: 423px;
+    flex-wrap: wrap;
+    
+}
+
+.feature{
+    gap:8px;
+}
+
+.featuresList {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    border-radius: 12px;
+    max-width: 527px;
+    background-color: transparent;
+}
+.featuresContainer{
+    background-color: transparent;
+}
+
+.vehicleDetails {
+    max-width: 527px;
+}
+
+.vehicleDetails h2 {
+    display: flex;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.2;
+    color: #101828;
+   
+    
+}
+
+h2 {
+    all: unset;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.2;
+    color: #101828;
+    margin-top: 100px;
+    margin-bottom: 24px;
+   
+    }
+.tabContainerVehicle {
+    display: flex;
+    border-bottom: 1px solid #DADDE1;
+    width: 527px;
+    margin: 0;
+    padding: 0;
+}
+
+table{
+    all: unset;
+    background-color: transparent;
+}
+
+td{
+    background-color: transparent;
+}
+
+
+.vehicleDetails table {
+    width: 100%;
+    border-collapse: collapse;
+    
+}
+
+.vehicleDetails td {
+    padding: 8px 0;
+    
+}
+
+.vehicleDetails td:first-child {
+    font-weight: bold;
+    text-align: left;
+    
+}
+
+.vehicleDetails td:last-child {
+    
+    text-align: right;
+}
