@@ -1,17 +1,24 @@
 import PropTypes from "prop-types";
 import styles from "./CamperDetails.module.css";
 
+
 const Reviews = ({ reviews }) => (
   <div className={styles.reviewsContainer}>
-    <h2 className={styles.heading}>User Reviews</h2>
     {reviews.length > 0 ? (
       <ul className={styles.reviewsList}>
         {reviews.map((review, index) => (
           <li key={index} className={styles.reviewItem}>
-            <p className={styles.reviewText}>{review.comment}</p>
+            {/* Генерація аватарки */}
             <span className={styles.reviewAuthor}>
-              - {review.reviewer_name} ({review.reviewer_rating}★)
+              {review.reviewer_name.charAt(0)}
             </span>
+            <div className={styles.reviewContent}>
+              <div className={styles.reviewHeader}>
+                <span>{review.reviewer_name}</span>
+                <span>{'★'.repeat(review.reviewer_rating)}</span>
+              </div>
+              <p className={styles.reviewText}>{review.comment}</p>
+            </div>
           </li>
         ))}
       </ul>
