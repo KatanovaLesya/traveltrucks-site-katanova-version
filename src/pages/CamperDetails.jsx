@@ -10,12 +10,16 @@ import TabNavigation from "../components/Details/TabNavigation";
 import FeaturesContent from "../components/Details/FeaturesContent";
 import Reviews from "../components/Details/Reviews";
 import styles from "../styles/styles.module.css";
+import FeedbackForm from "../components/Details/FeedbackForm";
 
 const CamperDetails = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const { selectedCamper, loading, error } = useSelector((state) => state.campers);
   const [activeTab, setActiveTab] = useState("features");
+  const handleFormSubmit = (data) => {
+    console.log("Form Submitted:", data);
+  };
 
 
   useEffect(() => {
@@ -71,6 +75,9 @@ const CamperDetails = () => {
         <div className={styles.tabContent}>
           {activeTab === "features" && <FeaturesContent features={features} details={details} />}
           {activeTab === "reviews" && <Reviews reviews={selectedCamper.reviews} />}
+        </div>
+        <div>
+          <FeedbackForm onSubmit={handleFormSubmit} />
         </div>
 
       </div>
