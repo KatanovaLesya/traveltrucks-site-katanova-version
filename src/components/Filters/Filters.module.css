@@ -1,16 +1,110 @@
-.filters {
+.filtersContainer {
+    font-family: "Inter", sans-serif;
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    padding: 20px;
+    gap: 32px;
+    margin: 0 auto;
+}
+
+.input {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    border-radius: 12px;
+    border: none;
     background-color: #f7f7f7;
-    border-radius: 8px;
-    width: 300px;
+    padding: 18px 18px 18px 48px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    
+}
+
+.map
+{
+    position: absolute;
+    left:20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    fill:#6C717B;
+}
+
+.inputWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.map:hover
+{
+    fill: #101828;
+}
+
+.label {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #6c717b; 
+    
+}
+
+.label:hover{
+    color: #101828;
+}
+
+.dividerLine {
+    width: 360px;
+    height: 1px;
+    background-color: #dadde1;
+    margin-bottom: 24px;
+}
+
+.labelEquipment
+{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.2;
+    color: #101828;
+    margin-bottom: 24px;
+}
+
+.text{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #475467;
+    margin-bottom: 32px;
+}
+
+.filterBlock {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #6c717b;
+    
 }
 
 .searchButton {
     font-family: "Inter", sans-serif;
-    margin-top: 40px;
     padding: 16px 60px;
     background-color: #e44848;
     font-weight: 500;
@@ -27,4 +121,135 @@
 
 .searchButton:hover {
     background-color: #d84343;
+}
+
+.checkboxGroup {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    
+}
+
+.checkboxLabel {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    background-color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid #dadde1;
+    border-radius: 12px;
+    width: 112px;
+    height: 96px;
+}
+
+.checkboxLabel span {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    text-align: center;
+    
+}
+
+.checkboxLabel input[type="checkbox"] {
+    display: none;
+}
+
+/* Змінити рамку label, якщо чекбокс вибраний */ 
+.checkboxLabel input[type="checkbox"]:checked + span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    border: 1px solid #e44848;
+    border-radius: 12px;
+    width: 112px;
+    height: 96px;
+}
+
+.checkboxLabel span svg{
+    margin-bottom: 8px;
+    width: 20px;
+    height: 20px;
+  
+   
+    
+}
+.icon 
+{
+    width: 20px;
+    height: 20px;
+    fill: #6C717B;
+}
+.radioGroup {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+.radioButton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    background-color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid #dadde1;
+    border-radius: 12px;
+    width: 112px;
+    height: 96px;
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    text-align: center;
+    color: #101828;
+    gap: 1.5px;
+    padding: 2px;
+}
+
+.radioButton:hover {
+    border: 1px solid #b61c1c;
+    border-radius: 12px;
+    width: 112px;
+    height: 96px;
+    background-color: none;
+}
+
+.radioActive {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    background-color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid #e63946;
+    /* Червона рамка */
+    border-radius: 12px;
+    width: 112px;
+    height: 96px;
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+}
+.icontype{
+    width: 32px;
+    height: 32px;
+    fill: currentColor;
 }

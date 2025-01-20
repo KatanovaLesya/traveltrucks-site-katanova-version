@@ -8,7 +8,11 @@ import styles from "/src/styles/styles.module.css";
 const Catalog = () => {
   const dispatch = useDispatch();
   const { items, loading, error } = useSelector((state) => state.campers);
-  const [filters, setFilters] = useState({});
+  const [filters, setFilters] = useState({
+    location: "",
+    equipment: [],
+    vehicleType: "",
+  });
   const [filteredCampers, setFilteredCampers] = useState([]);
   const [visibleCount, setVisibleCount] = useState(12);
 
@@ -29,6 +33,7 @@ const Catalog = () => {
 
 
   const applyFilters = (newFilters) => {
+  console.log("Applying filters:", newFilters); 
   const vehicleTypeMap = {
     Van: "panelTruck",
     "Fully Integrated": "fullyIntegrated",
@@ -73,9 +78,14 @@ const Catalog = () => {
 
 
   const handleSearchClick = () => {
-    applyFilters(filters);
-    setVisibleCount(6); // Скидання видимих карток
-  };
+    console.log("Current filters before applying:", filters);
+    setFilters((prevFilters) => {
+        applyFilters(prevFilters);
+        return prevFilters; // Упевнитися, що значення не скидається
+    });
+    setVisibleCount(6); // Скидання кількості видимих карток
+};
+
 
   const handleLoadMore = () => {
     setVisibleCount((prevCount) => prevCount + 6);

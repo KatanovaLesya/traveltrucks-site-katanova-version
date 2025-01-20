@@ -37,8 +37,8 @@ const CamperCard = ({ camper }) => {
           
             {camper.AC && (
               <div className={styles.features}>
-                <svg className={styles.wind}>
-                  <use xlinkHref="/public/assets/svg/sprites.svg#wind"></use>
+                <svg className={styles.ac}>
+                  <use xlinkHref="/public/assets/svg/sprites.svg#ac"></use>
                 </svg>
                 <span className={styles.featureText}>AC</span>
               </div>
@@ -46,8 +46,8 @@ const CamperCard = ({ camper }) => {
             )}
             {camper.automatic && (
               <div className={styles.features}>
-                <svg className={styles.diagram}>
-                  <use xlinkHref="/public/assets/svg/sprites.svg#diagram"></use>
+                <svg className={styles.automatic}>
+                  <use xlinkHref="/public/assets/svg/sprites.svg#automatic"></use>
                 </svg>
                 <span className={styles.featureText}>Automatic</span>
               </div>
@@ -56,7 +56,7 @@ const CamperCard = ({ camper }) => {
             {camper.kitchen &&  (
               <div className={styles.features}>
                 <svg className={styles.kitchen}>
-                  <use xlinkHref="/public/assets/svg/sprites.svg#cup-hot"></use>
+                  <use xlinkHref="/public/assets/svg/sprites.svg#kitchen"></use>
                 </svg>
                 <span className={styles.featureText}>Kitchen</span>
               </div>
@@ -65,7 +65,7 @@ const CamperCard = ({ camper }) => {
           {camper.bathroom && (
               <div className={styles.features}>
                 <svg className={styles.bathroom}>
-                  <use xlinkHref="/public/assets/svg/sprites.svg#ph_shower"></use>
+                  <use xlinkHref="/public/assets/svg/sprites.svg#bathroom"></use>
                 </svg>
                 <span className={styles.featureText}>Bathroom</span>
               </div>
