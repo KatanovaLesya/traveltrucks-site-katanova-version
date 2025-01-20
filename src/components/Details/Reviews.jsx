@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
 import styles from "./CamperDetails.module.css";
 
-
 const Reviews = ({ reviews }) => (
   <div className={styles.reviewsContainer}>
     {reviews.length > 0 ? (
@@ -14,8 +13,10 @@ const Reviews = ({ reviews }) => (
             </span>
             <div className={styles.reviewContent}>
               <div className={styles.reviewHeader}>
-                <span>{review.reviewer_name}</span>
-                <span>{'★'.repeat(review.reviewer_rating)}</span>
+                <span className={styles.reviewerName}>{review.reviewer_name}</span>
+                <span className={styles.reviewerRating}>
+                  {"★".repeat(review.reviewer_rating)}
+                </span>
               </div>
               <p className={styles.reviewText}>{review.comment}</p>
             </div>

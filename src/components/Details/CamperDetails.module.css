@@ -313,6 +313,13 @@
     color: #101828;
 }
 
+.reviewHeader span:last-child {
+    color: #fbbf24;
+    /* Жовтий колір для зірок */
+    font-size: 16px;
+    font-weight: 500;
+}
+
 .reviewText {
     font-size: 14px;
     font-weight: 400;
@@ -480,8 +487,11 @@ h2 {
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    background-color: #e4e7eb;
-    color: #344054;
+    /* Робить аватарки круглими */
+    background-color: #e0e0e0;
+    /* Сірий фон */
+    color: #e63946;
+    /* Червоний колір для першої літери */
     text-transform: uppercase;
     margin-right: 16px;
 }
