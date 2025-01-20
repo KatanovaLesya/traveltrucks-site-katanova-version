@@ -76,7 +76,7 @@ const CamperDetails = () => {
           {activeTab === "features" && <FeaturesContent features={features} details={details} />}
           {activeTab === "reviews" && <Reviews reviews={selectedCamper.reviews} />}
         </div>
-        <div>
+        <div className={styles.feedbackContainer}>
           <FeedbackForm onSubmit={handleFormSubmit} />
         </div>
 

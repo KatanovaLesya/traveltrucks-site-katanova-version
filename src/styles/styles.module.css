@@ -81,4 +81,31 @@
 .gallery{
     margin-bottom: 28px;
 }
+.detailsContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 32px;
+    padding: 48px;
+}
 
+.detailsContent {
+    flex: 2;
+    /* Основний контент займає більше простору */
+}
+
+.feedbackContainer {
+    position: absolute;
+    bottom: -420px;
+    left: 900px;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 600px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.tabContainer {
+    position: relative;
+}

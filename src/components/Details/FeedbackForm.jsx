@@ -33,7 +33,7 @@ const FeedbackForm = ({ onSubmit }) => {
         Stay connected! We are always ready to help you.
       </p>
       <div className={styles.formGroup}>
-        <label htmlFor="name">Name*</label>
+        <label htmlFor="name"></label>
         <input
           type="text"
           id="name"
@@ -45,7 +45,7 @@ const FeedbackForm = ({ onSubmit }) => {
         />
       </div>
       <div className={styles.formGroup}>
-        <label htmlFor="email">Email*</label>
+        <label htmlFor="email"></label>
         <input
           type="email"
           id="email"
@@ -57,7 +57,7 @@ const FeedbackForm = ({ onSubmit }) => {
         />
       </div>
       <div className={styles.formGroup}>
-        <label htmlFor="date">Booking date*</label>
+        <label htmlFor="date"></label>
         <input
           type="date"
           id="date"
@@ -68,7 +68,7 @@ const FeedbackForm = ({ onSubmit }) => {
         />
       </div>
       <div className={styles.formGroup}>
-        <label htmlFor="comment">Comment</label>
+        <label htmlFor="comment"></label>
         <textarea
           id="comment"
           name="comment"
