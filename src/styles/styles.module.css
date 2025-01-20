@@ -96,8 +96,8 @@
 
 .feedbackContainer {
     position: absolute;
-    bottom: -420px;
-    left: 900px;
+    bottom: -570px;
+    left: 1100px;
     transform: translateX(-50%);
     width: 90%;
     max-width: 600px;
