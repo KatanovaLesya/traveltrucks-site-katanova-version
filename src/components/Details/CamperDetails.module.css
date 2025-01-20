@@ -1,0 +1,154 @@
+
+.galleryContainer {
+    overflow-x: auto;
+    display: flex;
+}
+
+.gallery {
+    display: flex;
+    gap: 48px;
+    overflow-x: auto; 
+    scroll-snap-type: x mandatory;
+}
+
+.galleryImage {
+    border-radius: 10px;
+    max-width: 292px;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    scroll-snap-align: start;
+}
+
+.galleryImage:hover {
+    transform: scale(1.05);
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modalContent {
+    position: relative;
+    background: #fff;
+    padding: 16px;
+    border-radius: 8px;
+    max-width: 90%;
+    max-height: 90%;
+    overflow: hidden;
+}
+
+.modalImage {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.closeButton {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #333;
+    cursor: pointer;
+}
+
+.galleryWrapper{
+    
+    overflow-x: auto;
+    width: 100%;
+    max-width: 1440px;
+    box-sizing: border-box;
+        
+}
+
+.titleContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.ratingLocation {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.name {
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 1.33;
+    color: #101828;
+    margin: 0;
+    margin-bottom: 8px;
+}
+
+.rating,
+.reviews {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    text-decoration-skip-ink: none;
+    color: #101828;
+}
+
+.reviews {
+    text-decoration: underline;
+}
+
+.location {
+    font-family: "Inter", sans-serif;
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #101828;
+    gap: 4px;
+}
+
+.mapIcon {
+    width: 16px;
+    height: 16px;
+}
+
+.price {
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 1.33333;
+    color: #101828;
+    margin: 0;
+    margin-bottom: 28px;
+}
+.descriptionContainer{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.description {
+    margin: 0;
+    padding-top: 16px;
+    padding-right: 16px;
+    padding-bottom: 60px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #475467;
+}
+

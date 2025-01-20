@@ -7,6 +7,15 @@
 
 }
 
+.detailsContainer {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 48px 64px;
+    width: 100%;
+    max-width: 1440px;
+}
+
 .filters {
     width: 360px;
     
@@ -67,4 +76,8 @@
 
 .loadMoreButton:hover {
     border: 1px solid #d84343;
+}
+
+.gallery{
+    margin-bottom: 28px;
 }

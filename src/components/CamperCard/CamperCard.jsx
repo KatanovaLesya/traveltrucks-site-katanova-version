@@ -1,34 +1,73 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import styles from './CamperCard.module.css';
+import { useState, useEffect } from 'react';
 
 const CamperCard = ({ camper }) => {
+  const [favorites, setFavorites] = useState([]);
+  // Завантаження обраних із localStorage
+  useEffect(() => {
+    const storedFavorites = localStorage.getItem('favorites');
+    if (storedFavorites) {
+      setFavorites(JSON.parse(storedFavorites));
+    }
+  }, []);
+
+  // Додавання/видалення з обраних
+  const toggleFavorite = () => {
+    let updatedFavorites;
+    if (favorites.includes(camper.id)) {
+      updatedFavorites = favorites.filter((id) => id !== camper.id);
+    } else {
+      updatedFavorites = [...favorites, camper.id];
+    }
+    setFavorites(updatedFavorites);
+    localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+  };
+
+  const isFavorite = favorites.includes(camper.id);
+
   return (
     <div className={styles.card}>
+      <div className={styles.imageWrapper}>
       <img
         src={camper.gallery?.[0]?.thumb || "https://via.placeholder.com/180"}
         alt={camper.name || "Camper"}
         className={styles.image}
         onError={(e) => {
           e.target.src = "https://via.placeholder.com/180";
-  }}
-/>
+        }}
+        />
+        <button
+          className={styles.favoriteButton}
+          onClick={toggleFavorite}
+          aria-label={isFavorite ? 'Remove from favorites' : 'Add to favorites'}
+        >
+          <svg className={styles.favoriteIcon}>
+            <use xlinkHref={`/assets/svg/sprites.svg#${isFavorite ? 'heart-filled' : 'heart-outline'}`} />
+          </svg>
+        </button>
+      </div>
 
       <div className={styles.info}>
-        <h3 className={styles.title}>{camper.name}</h3>
-        <p className={styles.price}>€{camper.price?.toLocaleString()}</p>
-        <p className={styles.rating}>
-          ⭐ {camper.rating} ({camper.reviews?.length || 0} Reviews)
-        </p>
-        <div className={styles.location}>
-          <svg className={styles.map}>
-            <use xlinkHref="/public/assets/svg/sprites.svg#Map"></use>
-          </svg>
-          {camper.location}
+        <div className={styles.titlePriceContainer}>
+          <h3 className={styles.title}>{camper.name}</h3>
+          <p className={styles.price}>€{camper.price?.toLocaleString()}</p>
+        </div>
+        <div className={styles.ratingLocationContainer}>
+          <p className={styles.rating}>
+            ⭐ {camper.rating} ({camper.reviews?.length || 0} Reviews)
+          </p>
+          <div className={styles.location}>
+            <svg className={styles.map}>
+              <use xlinkHref="/assets/svg/sprites.svg#Map"></use>
+            </svg>
+            {camper.location}
+          </div>
         </div>
         <p className={styles.description}>
-          {camper.description?.length > 100
-            ? `${camper.description.slice(0, 100)}...`
+          {camper.description?.length > 70
+            ? `${camper.description.slice(0, 70)}...`
             : camper.description || "No description available."}
         </p>
 
@@ -38,7 +77,7 @@ const CamperCard = ({ camper }) => {
             {camper.AC && (
               <div className={styles.features}>
                 <svg className={styles.ac}>
-                  <use xlinkHref="/public/assets/svg/sprites.svg#ac"></use>
+                  <use xlinkHref="/assets/svg/sprites.svg#ac"></use>
                 </svg>
                 <span className={styles.featureText}>AC</span>
               </div>
@@ -47,7 +86,7 @@ const CamperCard = ({ camper }) => {
             {camper.automatic && (
               <div className={styles.features}>
                 <svg className={styles.automatic}>
-                  <use xlinkHref="/public/assets/svg/sprites.svg#automatic"></use>
+                  <use xlinkHref="/assets/svg/sprites.svg#automatic"></use>
                 </svg>
                 <span className={styles.featureText}>Automatic</span>
               </div>
@@ -56,7 +95,7 @@ const CamperCard = ({ camper }) => {
             {camper.kitchen &&  (
               <div className={styles.features}>
                 <svg className={styles.kitchen}>
-                  <use xlinkHref="/public/assets/svg/sprites.svg#kitchen"></use>
+                  <use xlinkHref="/assets/svg/sprites.svg#kitchen"></use>
                 </svg>
                 <span className={styles.featureText}>Kitchen</span>
               </div>
@@ -65,7 +104,7 @@ const CamperCard = ({ camper }) => {
           {camper.bathroom && (
               <div className={styles.features}>
                 <svg className={styles.bathroom}>
-                  <use xlinkHref="/public/assets/svg/sprites.svg#bathroom"></use>
+                  <use xlinkHref="/assets/svg/sprites.svg#bathroom"></use>
                 </svg>
                 <span className={styles.featureText}>Bathroom</span>
               </div>
@@ -74,7 +113,7 @@ const CamperCard = ({ camper }) => {
           {camper.tv && (
               <div className={styles.features}>
                 <svg className={styles.tv}>
-                  <use xlinkHref="/public/assets/svg/sprites.svg#tv"></use>
+                  <use xlinkHref="/assets/svg/sprites.svg#tv"></use>
                 </svg>
                 <span className={styles.featureText}>TV</span>
               </div>
@@ -141,7 +180,7 @@ const CamperCard = ({ camper }) => {
           <button className={styles.button}>Show More</button>
         </Link>
       </div>
-    </div>
+  </div>
   );
 };
 

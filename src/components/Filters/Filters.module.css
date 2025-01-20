@@ -195,6 +195,8 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 12px;
+   
+    
 }
 .radioButton{
     display: flex;
@@ -226,6 +228,7 @@
     width: 112px;
     height: 96px;
     background-color: none;
+
 }
 
 .radioActive {
@@ -238,7 +241,6 @@
     cursor: pointer;
     transition: all 0.3s ease;
     border: 1px solid #e63946;
-    /* Червона рамка */
     border-radius: 12px;
     width: 112px;
     height: 96px;
@@ -247,8 +249,10 @@
     font-size: 16px;
     line-height: 1.5;
     letter-spacing: -0.01em;
+    color: #101828;
 }
 .icontype{
+   
     width: 32px;
     height: 32px;
     fill: currentColor;

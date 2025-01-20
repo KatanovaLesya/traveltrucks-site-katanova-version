@@ -45,7 +45,7 @@ const Filters = ({ onFilterApply, onSearchClick }) => {
         <label className={styles.label}>Location</label>
         <div className={styles.inputWrapper}>
           <svg className={styles.map}>
-            <use xlinkHref="/public/assets/svg/sprites.svg#Map"></use>
+            <use xlinkHref="/assets/svg/sprites.svg#Map"></use>
           </svg>
           <input
             type="text"

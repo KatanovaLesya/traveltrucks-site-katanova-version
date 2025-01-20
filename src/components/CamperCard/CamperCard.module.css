@@ -1,39 +1,86 @@
 /* Головний контейнер картки */
 .card {
     display: flex;
-    flex-direction: column;
-  
-    overflow: hidden;
-    background-color: #fff;
+    align-items: flex-start;
+    gap: 24px;
    
+    background-color: #fff;
+}
+.imageWrapper {
+    position: relative;
+    flex-shrink: 0; 
 }
 
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+.favoriteButton {
+    position: absolute;
+    top: 0px;
+    right: -530px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
 }
 
-/* Зображення кемпера */
+.favoriteIcon {
+    width: 24px;
+    height: 24px;
+    fill: #101828;
+    transition: transform 0.2s ease;
+}
+
+.favoriteButton:hover .favoriteIcon {
+    transform: scale(1.2);
+    fill: #E44848;
+}
+
 .image {
-    width: 100%;
-    height: 180px;
+    border-radius: 10px;
+    width: 292px;
+    height: 320px;
     object-fit: cover;
 }
 
+.titlePriceContainer {
+    display: flex;
+    align-items:flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    margin-right: 40px;
+    margin-bottom: 8px;
+}
 /* Контейнер для інформації */
 .info {
-    padding: 16px;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    justify-content: space-between;
+    flex:1;
 }
 
 /* Назва кемпера */
 .title {
-    font-size: 1.2rem;
-    font-weight: bold;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 1.33;
     color: #101828;
     margin: 0;
+}
+
+.ratingLocationContainer {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+    
+}
+
+.description {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #475467;
+    margin: 0;
+    margin-bottom: 24px;
 }
 
 /* Локація */
@@ -43,13 +90,21 @@
     display: flex;
     align-items: center;
     gap: 4px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #101828;
 }
 
 /* Ціна */
 .price {
-    font-size: 1.1rem;
-    font-weight: bold;
-    color: #e44a48;
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 1.33;
+    color: #101828;
+    margin: 0;
+    
 }
 
 /* Кнопка */
@@ -67,6 +122,28 @@
 
 .button:hover {
     background-color: #d84343;
+}
+
+.rating {
+    font-size: 0.9rem;
+    color: #475467;
+    display: flex;
+    align-items:flex-start;
+    justify-content: flex-start;
+    gap: 4px;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #101828;
+    margin: 0;
+}
+
+.options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 24px;
 }
 
 .map
@@ -159,21 +236,58 @@
 .features {
     display: flex;
     align-items: center;
-    background-color: #f5f7fa;
+    background-color: #f2f4f7;
+    border-radius: 100px;
     padding: 8px 12px;
-    border-radius: 12px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    font-size: 14px;
+    width: fit-content;
+    height: fit-content;
+    font-family: "Inter", sans-serif;
     font-weight: 500;
-    color: #1d1f22;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: center;
+    color: #101828;
+    white-space: nowrap;
+    cursor: default;
+    
 }
 .featureText {
     font-size: 14px;
 }
 
-.options {
+.favoriteIcon {
+    width: 24px;
+    height: 24px;
+    fill: #e44a48;
+    cursor: pointer;
+    background-color: none;
+}
+
+.feature {
     display: flex;
-    flex-wrap: wrap;
+    align-items: center;
     gap: 8px;
-    margin-top: 8px;
+    padding: 8px 12px;
+    background: #f9f9f9;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.button {
+    background: #e44848;
+    border: none;
+    border-radius: 100px;
+    width: 166px;
+    height: 56px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+    color: #fff;
+}
+
+.button:hover {
+    background: #d84343;
 }
